@@ -1,3 +1,6 @@
+import 'package:bottomtabanddrawer/page/home.dart';
+import 'package:bottomtabanddrawer/page/search.dart';
+import 'package:bottomtabanddrawer/page/setting.dart';
 import 'package:flutter/material.dart';
 
 void main() => runApp(MyApp());
@@ -21,19 +24,20 @@ class _MyHomePageState extends State<MyHomePage> {
 
   // Define the pages to be displayed in the Bottom Navigation Tab Bar
   final List<Widget> _pages = [
-    FirstPage(),
-    SecondPage(),
-    ThirdPage(),
+    Home(),
+    Search(),
+    Setting(),
   ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Bottom Tab and Drawer Example'),
+        title: Text('Home APP'),
       ),
       body: _pages[_currentIndex],
       bottomNavigationBar: BottomNavigationBar(
+        backgroundColor: Colors.white60,
         currentIndex: _currentIndex,
         onTap: (int index) {
           setState(() {
@@ -86,33 +90,6 @@ class _MyHomePageState extends State<MyHomePage> {
           ],
         ),
       ),
-    );
-  }
-}
-
-class FirstPage extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Center(
-      child: Text('Home Page'),
-    );
-  }
-}
-
-class SecondPage extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Center(
-      child: Text('Search Page'),
-    );
-  }
-}
-
-class ThirdPage extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Center(
-      child: Text('Settings Page'),
     );
   }
 }
